@@ -3,13 +3,13 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Appbar from './src/components/Appbar';
-import PinPhotoDetailScreen from './src/screens/PinPhotoDetailScreen';
+import PhotoEditScreen from './src/screens/PhotoEditScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Appbar />
-      <PinPhotoDetailScreen />
+      <PhotoEditScreen />
     </View>
   );
 }
