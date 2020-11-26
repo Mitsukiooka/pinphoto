@@ -17,7 +17,7 @@ class PinPhotoDetailScreen extends React.Component {
           <Text>昨日通った気になる油そば屋さん</Text>
         </View>
 
-        <CircleButton color='white' style={styles.editButton}>+</CircleButton>
+        <CircleButton name='pencil' color='white' style={styles.editButton} />
       </View>
     );
   }

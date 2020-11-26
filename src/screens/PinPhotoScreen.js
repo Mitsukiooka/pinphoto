@@ -9,7 +9,7 @@ class PinPhotoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <PinPhoto />
-        <CircleButton>+</CircleButton>
+        <CircleButton name='plus' />
       </View>
     )
   }
