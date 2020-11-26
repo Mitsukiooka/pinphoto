@@ -2,16 +2,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import PinPhoto from './src/components/PinPhoto';
 import Appbar from './src/components/Appbar';
-import CircleButton from './src/elements/CircleButton';
+import PinPhotoDetailScreen from './src/screens/PinPhotoDetailScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Appbar />
-      <PinPhoto />
-      <CircleButton>+</CircleButton>
+      <PinPhotoDetailScreen />
     </View>
   );
 }
