@@ -8,8 +8,8 @@ class PinPhotoScreen extends React.Component {
   render (){
     return (
       <View style={styles.container}>
-        <PinPhoto />
-        <CircleButton name='plus' />
+        <PinPhoto navigation={this.props.navigation}/>
+        <CircleButton name='plus' onPress={() => { this.props.navigation.navigate('PhotoEdit')}}/>
       </View>
     )
   }
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    backgroundColor: '#fffdf6'
   },
 });
 

@@ -1,34 +1,37 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 class PinPhoto extends React.Component {
   render () {
     return (
     <View style={styles.pinphoto}>
-      <View style={styles.pinphotoItem}>
-        <Text style={styles.photoTitle}>アイテム</Text>
-        <Text style={styles.photoDate}>2020/11/20</Text>
-      </View>
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
+        <View style={styles.pinphotoItem}>
+          <Text style={styles.photoTitle}>アイテム</Text>
+          <Text style={styles.photoDate}>2020/11/20</Text>
+        </View>
+      </TouchableHighlight>
 
-      <View style={styles.pinphotoItem}>
-        <Text style={styles.photoTitle}>アイテム</Text>
-        <Text style={styles.photoDate}>2020/11/20</Text>
-      </View>
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
+        <View style={styles.pinphotoItem}>
+          <Text style={styles.photoTitle}>アイテム</Text>
+          <Text style={styles.photoDate}>2020/11/20</Text>
+        </View>
+      </TouchableHighlight>
 
-      <View style={styles.pinphotoItem}>
-        <Text style={styles.photoTitle}>アイテム</Text>
-        <Text style={styles.photoDate}>2020/11/20</Text>
-      </View>
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
+        <View style={styles.pinphotoItem}>
+          <Text style={styles.photoTitle}>アイテム</Text>
+          <Text style={styles.photoDate}>2020/11/20</Text>
+        </View>
+      </TouchableHighlight>
 
-      <View style={styles.pinphotoItem}>
-        <Text style={styles.photoTitle}>アイテム</Text>
-        <Text style={styles.photoDate}>2020/11/20</Text>
-      </View>
-
-      <View style={styles.pinphotoItem}>
-        <Text style={styles.photoTitle}>アイテム</Text>
-        <Text style={styles.photoDate}>2020/11/20</Text>
-      </View>
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
+        <View style={styles.pinphotoItem}>
+          <Text style={styles.photoTitle}>アイテム</Text>
+          <Text style={styles.photoDate}>2020/11/20</Text>
+        </View>
+      </TouchableHighlight>
     </View>
     );
   }
