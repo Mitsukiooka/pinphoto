@@ -15,17 +15,21 @@ import SignupScreen from './src/screens/SignupScreen';
 
 
 const App = createStackNavigator({
+  Login: { screen: LoginScreen },
+  Signup: { screen: SignupScreen },
   Home: { screen: PinPhotoScreen },
   PinPhotoDetail: { screen: PinPhotoDetailScreen },
   PhotoEdit: { screen: PhotoEditScreen },
-  Login: { screen: LoginScreen },
-  Signup: { screen: SignupScreen },
 }, {
   defaultNavigationOptions: {
     headerTitle: 'Pinphoto',
+    headerTintColor: '#fff',
     headerStyle: {
       backgroundColor: '#BB01BB'
     },
+    headerTitleStyle: {
+      color: '#fff'
+    }
   },
 });
 

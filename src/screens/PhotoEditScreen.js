@@ -7,7 +7,7 @@ class PhotoEditScreen extends React.Component {
     return (
       <View style={styles.container}>
         <TextInput style={styles.PhotoEditInput} multiline value='hi'/>
-        <CircleButton name='check' />
+        <CircleButton name='check' onPress={() => {this.props.navigation.goBack()}}/>
       </View>
     );
   }
