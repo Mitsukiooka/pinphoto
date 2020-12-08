@@ -1,10 +1,16 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 
+
 class LoginScreen extends React.Component {
   state = {
     email: '',
     password: '',
+  }
+  handleSubmit() {
+    // this.props.navigation.navigate('Home')
+
+    // Log in!!
   }
   render () {
     return (
@@ -27,7 +33,7 @@ class LoginScreen extends React.Component {
         placeholder="Password"
         secureTextEntry
         />
-        <TouchableHighlight style={styles.button} onPress={() => {this.props.navigation.navigate('Home')}}>
+        <TouchableHighlight style={styles.button} onPress={this.handleSubmit.bind(this)}>
           <Text style={styles.buttonTitle}>ログインする</Text>
         </TouchableHighlight>
       </View>
