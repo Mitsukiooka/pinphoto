@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -7,14 +8,34 @@ import CircleButton from '../elements/CircleButton';
 
 //
 class PinPhotoScreen extends React.Component {
+  state = {
+    memoList: [],
+  }
+  componentDidMount() {
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore();
+    db.collection(`users/${currentUser.uid}/photos`)
+      .get()
+      .then((querySnapshot) => {
+        const memolist = [];
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+          memolist.push(doc.data());
+        });
+        this.setState( { memoList: memolist });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
   handlePress() {
     const { params } = this.props.navigation.state;
-    this.props.navigation.navigate('PhotoCreate', {currentUser: params.currentUser})
+    this.props.navigation.navigate('PhotoCreate')
   }
   render (){
     return (
       <View style={styles.container}>
-        <PinPhoto navigation={this.props.navigation}/>
+        <PinPhoto memoList={this.state.memoList} navigation={this.props.navigation}/>
         <CircleButton name='plus' onPress={this.handlePress.bind(this)}/>
       </View>
     )

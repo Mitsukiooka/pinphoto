@@ -8,9 +8,9 @@ class PhotoCreateScreen extends React.Component {
     body: '',
   }
   handlePress() {
-    const { params } = this.props.navigation.state;
     const db = firebase.firestore();
-    db.collection(`users/${params.currentUser.user.uid}/photos`).add({
+    const { currentUser } = firebase.auth();
+    db.collection(`users/${currentUser.uid}/photos`).add({
       body: this.state.body,
       createdOn: new Date(), 
     })

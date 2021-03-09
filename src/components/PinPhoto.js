@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 class PinPhoto extends React.Component {
   render () {
+    console.log(this.props.memoList);
     return (
     <View style={styles.pinphoto}>
       <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
