@@ -6,7 +6,7 @@ class PinPhoto extends React.Component {
     return (
       <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail', {　memo: item　}); }}>
         <View style={styles.pinphotoItem}>
-          <Text style={styles.photoTitle}>{item.body}</Text>
+          <Text style={styles.photoTitle}>{item.body.substring(0, 10)}</Text>
           <Text style={styles.photoDate}>2020/11/20</Text>
         </View>
       </TouchableHighlight>
