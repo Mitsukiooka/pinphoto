@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, TouchableHighlight, FlatList } from 'react-nati
 class PinPhoto extends React.Component {
   renderMemo({ item }) {
     return (
-      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail', {　memo: item　}); }}>
         <View style={styles.pinphotoItem}>
           <Text style={styles.photoTitle}>{item.body}</Text>
           <Text style={styles.photoDate}>2020/11/20</Text>

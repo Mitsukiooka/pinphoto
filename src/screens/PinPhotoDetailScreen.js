@@ -1,20 +1,29 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { memo } from 'react/cjs/react.production.min';
 import CircleButton from '../elements/CircleButton';
 
 class PinPhotoDetailScreen extends React.Component {
+  state = {
+    memo: {},
+  }
+  componentDidMount() {
+    const { params } = this.props.navigation.state;
+    this.setState({ memo: params.memo });
+  }
   render () {
+    const { memo } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.PinPhotoHeader}>
           <View>
-            <Text style={styles.PinPhotoHeaderTitle}>春日亭</Text>
-            <Text style={styles.PinPhotoHeaderDate}>2020/11/26</Text>
+            <Text style={styles.PinPhotoHeaderTitle}>{memo.body}</Text>
+            <Text style={styles.PinPhotoHeaderDate}>{String(memo.createdOn)}</Text>
           </View>
         </View>
 
         <View style={styles.PinPhotoContent}>
-          <Text>昨日通った気になる油そば屋さん</Text>
+          <Text>{memo.body}</Text>
         </View>
 
         <CircleButton name='pencil' color='white' style={styles.editButton} onPress={() => {this.props.navigation.navigate('PhotoEdit')}}/>
