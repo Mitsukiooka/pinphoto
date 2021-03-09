@@ -10,11 +10,14 @@ import firebase from 'firebase';
 // import SignupScreen from './src/screens/SignupScreen';
 import PinPhotoScreen from './src/screens/PinPhotoScreen';
 import PinPhotoDetailScreen from './src/screens/PinPhotoDetailScreen'; 
+import PhotoCreateScreen from './src/screens/PhotoCreateScreen';
 import PhotoEditScreen from './src/screens/PhotoEditScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
 
 import ENV from './env.json'
+
+require("firebase/firestore");
 
 const firebaseConfig = {
   apiKey: ENV.FIREBASE_API_KEY,
@@ -33,6 +36,7 @@ const App = createStackNavigator({
   Home: { screen: PinPhotoScreen },
   PinPhotoDetail: { screen: PinPhotoDetailScreen },
   PhotoEdit: { screen: PhotoEditScreen },
+  PhotoCreate: { screen: PhotoCreateScreen },
 }, {
   defaultNavigationOptions: {
     headerTitle: 'Pinphoto',
