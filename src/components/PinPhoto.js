@@ -1,38 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, FlatList } from 'react-native';
 
 class PinPhoto extends React.Component {
+  renderMemo({ item }) {
+    return (
+      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
+        <View style={styles.pinphotoItem}>
+          <Text style={styles.photoTitle}>{item.body}</Text>
+          <Text style={styles.photoDate}>2020/11/20</Text>
+        </View>
+      </TouchableHighlight>
+    )
+  }
   render () {
-    console.log(this.props.memoList);
     return (
     <View style={styles.pinphoto}>
-      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
-        <View style={styles.pinphotoItem}>
-          <Text style={styles.photoTitle}>アイテム</Text>
-          <Text style={styles.photoDate}>2020/11/20</Text>
-        </View>
-      </TouchableHighlight>
-
-      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
-        <View style={styles.pinphotoItem}>
-          <Text style={styles.photoTitle}>アイテム</Text>
-          <Text style={styles.photoDate}>2020/11/20</Text>
-        </View>
-      </TouchableHighlight>
-
-      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
-        <View style={styles.pinphotoItem}>
-          <Text style={styles.photoTitle}>アイテム</Text>
-          <Text style={styles.photoDate}>2020/11/20</Text>
-        </View>
-      </TouchableHighlight>
-
-      <TouchableHighlight onPress={() => { this.props.navigation.navigate('PinPhotoDetail'); }}>
-        <View style={styles.pinphotoItem}>
-          <Text style={styles.photoTitle}>アイテム</Text>
-          <Text style={styles.photoDate}>2020/11/20</Text>
-        </View>
-      </TouchableHighlight>
+      <FlatList data={this.props.memoList} renderItem={this.renderMemo.bind(this)}></FlatList>
     </View>
     );
   }

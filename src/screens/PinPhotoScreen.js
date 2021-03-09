@@ -19,8 +19,7 @@ class PinPhotoScreen extends React.Component {
       .then((querySnapshot) => {
         const memolist = [];
         querySnapshot.forEach((doc) => {
-          console.log(doc.data());
-          memolist.push(doc.data());
+          memolist.push({...doc.data(), key: doc.id });
         });
         this.setState( { memoList: memolist });
       })
