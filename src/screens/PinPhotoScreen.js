@@ -11,7 +11,7 @@ class PinPhotoScreen extends React.Component {
   state = {
     memoList: [],
   }
-  componentDidMount() {
+  componentWillMount() {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     db.collection(`users/${currentUser.uid}/photos`)

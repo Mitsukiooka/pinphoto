@@ -7,7 +7,7 @@ class PinPhotoDetailScreen extends React.Component {
   state = {
     memo: {},
   }
-  componentDidMount() {
+  componentWillMount() {
     const { params } = this.props.navigation.state;
     this.setState({ memo: params.memo });
   }
@@ -17,7 +17,7 @@ class PinPhotoDetailScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.PinPhotoHeader}>
           <View>
-            <Text style={styles.PinPhotoHeaderTitle}>{memo.body}</Text>
+            <Text style={styles.PinPhotoHeaderTitle}>{memo.body.substring(0, 10)}</Text>
             <Text style={styles.PinPhotoHeaderDate}>{String(memo.createdOn)}</Text>
           </View>
         </View>
