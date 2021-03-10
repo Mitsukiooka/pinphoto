@@ -30,7 +30,8 @@ class PinPhotoDetailScreen extends React.Component {
           <Text style={styles.memoBody}>{memo.body}</Text>
         </View>
 
-        <CircleButton name='pencil' color='white' style={styles.editButton} onPress={() => {this.props.navigation.navigate('PhotoEdit')}}/>
+        <CircleButton name='pencil' color='white' style={styles.editButton} 
+        onPress={() => {this.props.navigation.navigate('PhotoEdit', { memo })}}/>
       </View>
     );
   }

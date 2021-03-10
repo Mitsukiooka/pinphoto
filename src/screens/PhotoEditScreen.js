@@ -3,10 +3,17 @@ import { StyleSheet, View, TextInput } from 'react-native';
 import CircleButton from '../elements/CircleButton';
 
 class PhotoEditScreen extends React.Component {
+  state = {
+    memo: {},
+  }
+  componentWillMount() {
+    const { params } = this.props.navigation.state;
+    this.setState({ memo: params.memo });
+  }
   render () {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.PhotoEditInput} multiline value='hi'/>
+        <TextInput style={styles.PhotoEditInput} multiline value={this.state.memo.body}/>
         <CircleButton name='check' onPress={() => {this.props.navigation.goBack()}}/>
       </View>
     );
