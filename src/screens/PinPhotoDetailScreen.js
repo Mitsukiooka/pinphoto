@@ -11,6 +11,10 @@ class PinPhotoDetailScreen extends React.Component {
     const { params } = this.props.navigation.state;
     this.setState({ memo: params.memo });
   }
+  dateString(date) {
+    const str = date.toDate().toISOString();
+    return str.split('T')[0];
+  }
   render () {
     const { memo } = this.state;
     return (
@@ -18,12 +22,12 @@ class PinPhotoDetailScreen extends React.Component {
         <View style={styles.PinPhotoHeader}>
           <View>
             <Text style={styles.PinPhotoHeaderTitle}>{memo.body.substring(0, 10)}</Text>
-            <Text style={styles.PinPhotoHeaderDate}>{String(memo.createdOn)}</Text>
+            <Text style={styles.PinPhotoHeaderDate}>{this.dateString(memo.createdOn)}</Text>
           </View>
         </View>
 
         <View style={styles.PinPhotoContent}>
-          <Text>{memo.body}</Text>
+          <Text style={styles.memoBody}>{memo.body}</Text>
         </View>
 
         <CircleButton name='pencil' color='white' style={styles.editButton} onPress={() => {this.props.navigation.navigate('PhotoEdit')}}/>
@@ -63,8 +67,11 @@ const styles = StyleSheet.create ({
   },
   editButton: {
     top: 75,
-
   },
+  memoBody: {
+    lineHeight: 22,
+    fontsize: 15
+  }
 });
 
 
