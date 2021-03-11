@@ -1,20 +1,44 @@
+import firebase from 'firebase';
 import React from 'react';
 import { StyleSheet, View, TextInput } from 'react-native';
 import CircleButton from '../elements/CircleButton';
 
 class PhotoEditScreen extends React.Component {
   state = {
-    memo: {},
+    body: '',
+    key: '',
   }
   componentWillMount() {
     const { params } = this.props.navigation.state;
-    this.setState({ memo: params.memo });
+    this.setState({ 
+      body: params.memo.body,
+      key: params.memo.key
+    });
+  }
+  handlePress() {
+    const db = firebase.firestore();
+    const { currentUser } = firebase.auth();
+    console.log(this.state);
+    db.collection(`users/${currentUser.uid}/photos`).doc(this.state.key)
+      .update({
+        body: this.state.body,
+      })
+      .then(() => {
+        console.log('succsess!');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   render () {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.PhotoEditInput} multiline value={this.state.memo.body}/>
-        <CircleButton name='check' onPress={() => {this.props.navigation.goBack()}}/>
+        <TextInput style={styles.PhotoEditInput} 
+        multiline 
+        value={this.state.body}
+        onChangeText={ (text) => { this.setState( { body: text } ); }}
+        />
+        <CircleButton name='check' onPress={this.handlePress.bind(this)}/>
       </View>
     );
   }
